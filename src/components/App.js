@@ -6,7 +6,13 @@ import Result from './Result'
 class App extends React.Component {
   state = {
     value: '',
-    data: []
+    time: '',
+    sunrise: '',
+    sunset: '',
+   temp: '', 
+   pressure: '',
+  speed: '',
+    error: false
     }
 
     handleSubmit = (e) => {
@@ -22,8 +28,24 @@ class App extends React.Component {
       throw Error("Błąd")
     })
     .then(response => response.json())
-   .then(data =>  this.setState({data}))
-    .catch(err => console.log(err))     
+   .then(data => { 
+    const newTime = new Date().toLocaleTimeString()
+    this.setState({
+    error: true, 
+    time: newTime,
+    sunrise: data.sys.sunrise,
+    sunset: data.sys.sunset,
+   temp: data.main.temp, 
+   pressure: data.main.pressure,
+  speed: data.wind.speed
+  })
+})
+    .catch(err => {
+      this.setState({
+        error: false
+      })
+      console.log(err)
+    })     
   
   
   }
@@ -36,6 +58,9 @@ class App extends React.Component {
 
 
   render() { 
+    console.log(this.state)
+    console.log(this.state.value)
+
     return ( 
     <>
 
@@ -43,7 +68,7 @@ class App extends React.Component {
     onSubmit = {this.handleSubmit} 
     onChange = {this.handleInputChange} 
     value = {this.state.value}/>
-    <Result />
+    {this.state.error && <Result data = {this.state}/>}
     </> );
   }
 }
