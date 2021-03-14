@@ -16,8 +16,8 @@ class App extends React.Component {
     error: false
     }
 
-    handleSubmit = (e) => {
-      e.preventDefault()
+  componentDidUpdate(prevProps, prevState){
+    if (prevState.value !== this.state.value) {
       const cityName = this.state.value
      
 
@@ -47,8 +47,8 @@ class App extends React.Component {
       })
       console.log(err)
     })     
-  
-  
+    }
+
   }
 
     handleInputChange = (e) => {
@@ -67,7 +67,6 @@ class App extends React.Component {
       <div className="box">
 
     <Form 
-    onSubmit = {this.handleSubmit} 
     onChange = {this.handleInputChange} 
     value = {this.state.value}/>
     </div>
