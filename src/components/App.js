@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import './Form.css';
 import Form from './Form'
 import Result from './Result'
 
@@ -62,14 +63,16 @@ class App extends React.Component {
     console.log(this.state.value)
 
     return ( 
-    <>
+    <div className="wrap">
+      <div className="box">
 
     <Form 
     onSubmit = {this.handleSubmit} 
     onChange = {this.handleInputChange} 
     value = {this.state.value}/>
+    </div>
     {this.state.error && <Result data = {this.state}/>}
-    </> );
+    </div> );
   }
 }
  

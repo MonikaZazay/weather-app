@@ -1,7 +1,17 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCity } from '@fortawesome/free-solid-svg-icons'
+
+
+
 const Form = (props) => {
     return (
-    <form onSubmit = {props.onSubmit}>
+    <div className = "box">
+        <div className = "form">
+       <h2> Wyszukaj miasta</h2> 
+    <form  onSubmit = {props.onSubmit}>
+    
+        <div className = "inputBox">
         <input
         type = "text" 
         value = {props.value} 
@@ -9,8 +19,13 @@ const Form = (props) => {
         placeholder = "Wpisz nazę miasta"
         
         ></input>
-        <button type = "submit">Wyszukaj miasta</button> 
+        <FontAwesomeIcon icon={faCity} />
+        
+
+        </div>
     </form>
+    </div>
+    </div>
     );
 }
  
