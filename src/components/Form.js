@@ -8,8 +8,8 @@ const Form = (props) => {
     return (
     <div className = "box">
         <div className = "form">
-       <h2> Wyszukaj miasta</h2> 
-    <form  onSubmit = {props.onSubmit}>
+       <h2> Wyszukaj miasta: </h2> 
+    <form>
     
         <div className = "inputBox">
         <input

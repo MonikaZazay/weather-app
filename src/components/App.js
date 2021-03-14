@@ -64,12 +64,12 @@ class App extends React.Component {
 
     return ( 
     <div className="wrap">
-      <div className="box">
+      
 
     <Form 
     onChange = {this.handleInputChange} 
     value = {this.state.value}/>
-    </div>
+  
     {this.state.error && <Result data = {this.state}/>}
     </div> );
   }

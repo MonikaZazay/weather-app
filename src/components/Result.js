@@ -7,13 +7,13 @@ const sunsetTime = new Date(sunset * 1000).toLocaleTimeString()
 
     return ( 
 <div className = "result">
-    <h3>Wynik dla miasta: {value}</h3>
-    <h4>Dane dla dnia i godziny: {time}</h4>
-    <h4>temperatura: {temp} &#176;C</h4>
-    <h4>wschód słońca: {sunriseTime}</h4>
-    <h4>zachód słońca: {sunsetTime}</h4>
-    <h4>Aktualne ciśnienie: {pressure} hPa</h4>
-    <h4>Aktualna prędkość wiatru: {speed} m/s</h4>
+    <h3>Wynik dla miasta: {value.toUpperCase()}</h3>
+    <p>Dane dla dnia i godziny: <strong>{time}</strong></p>
+    <p>temperatura: <strong>{temp} &#176;C</strong></p>
+    <p>wschód słońca: <strong>{sunriseTime}</strong></p>
+    <p>zachód słońca: <strong>{sunsetTime}</strong></p>
+    <p>Aktualne ciśnienie: <strong>{pressure} hPa</strong></p>
+    <p>Aktualna prędkość wiatru: <strong>{speed} m/s</strong></p>
     </div>
     
     );
